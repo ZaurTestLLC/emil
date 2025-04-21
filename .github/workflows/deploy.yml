@@ -1,0 +1,23 @@
+name: Deploy to PreProd
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, tenant1]
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Pre-Prod Server
+        run: |
+          ssh -o StrictHostKeyChecking=no {{ secrets.USERNAME }}@{{ secrets.IP }} powershell.exe -Command "
+            Write-Host 'Deploy başlayır...';
+            cd 'C:\\inetpub\\wwwroot\\myapp';
+            git pull origin main;
+            iisreset;
+          "
