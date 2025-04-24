@@ -17,5 +17,5 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.TEST_USERNAME }}@${{ secrets.TEST_HOST }} powershell.exe -Command "
             cd 'C:\\inetpub\\wwwroot';
-            git clone https://github.com/ZaurTestLLC/emil.git;
+            ni test.txt;
           "
