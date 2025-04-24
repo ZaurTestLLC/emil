@@ -15,9 +15,7 @@ jobs:
 
       - name: Deploy to Pre-Prod Server
         run: |
-          ssh -o StrictHostKeyChecking=no {{ secrets.USERNAME }}@{{ secrets.IP }} powershell.exe -Command "
-            Write-Host 'Deploy başlayır...';
-            cd 'C:\\inetpub\\wwwroot\\myapp';
+          ssh -o StrictHostKeyChecking=no {{ secrets.TEST_USERNAME }}@{{ secrets.TEST_HOST }} powershell.exe -Command "
+            cd 'C:\\inetpub\\wwwroot';
             git pull origin main;
-            iisreset;
           "
