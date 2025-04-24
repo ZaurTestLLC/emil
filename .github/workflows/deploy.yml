@@ -15,4 +15,4 @@ jobs:
 
       - name: Deploy to Pre-Prod Server
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.TEST_USERNAME }}@${{ secrets.TEST_HOST }} powershell.exe -Command "whoami"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.TEST_USERNAME }}@${{ secrets.TEST_HOST }} powershell.exe -Command "cd C:\\interpub\wwwroot; git clone https://github.com/ZaurTestLLC/emil.git;"
