@@ -16,6 +16,5 @@ jobs:
       - name: Deploy to Pre-Prod Server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.TEST_USERNAME }}@${{ secrets.TEST_HOST }} powershell.exe -Command "
-            cd 'C:\\inetpub\\wwwroot';
-            ni test.txt;
+            whoami;
           "
