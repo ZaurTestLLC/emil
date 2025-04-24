@@ -15,7 +15,7 @@ jobs:
 
       - name: Deploy to Pre-Prod Server
         run: |
-          ssh -o StrictHostKeyChecking=no {{ secrets.TEST_USERNAME }}@{{ secrets.TEST_HOST }} powershell.exe -Command "
+          ssh -o StrictHostKeyChecking=no ${{ secrets.TEST_USERNAME }}@${{ secrets.TEST_HOST }} powershell.exe -Command "
             cd 'C:\\inetpub\\wwwroot';
-            git pull origin main;
+            git clone https://github.com/ZaurTestLLC/emil.git;
           "
